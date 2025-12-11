@@ -80,6 +80,11 @@ class Sidebar {
             </a>
         `;
     }
+
+    static getOrdenesPendientesBadge() {
+    const ordenes = OrdenCompraService.getOrdenesPendientes();
+    return ordenes.length > 0 ? ordenes.length : null;
+    }
     
     /**
      * Obtiene los items del menú según el rol del usuario
@@ -144,6 +149,19 @@ class Sidebar {
                         icon: 'fas fa-truck',
                         route: '/proveedores',
                         permission: 'proveedores.ver'
+                    },
+                    {
+                        label: 'Consultar Disponibilidad',
+                        icon: 'fas fa-search',
+                        route: '/disponibilidad',
+                        permission: 'disponibilidad.consultar'
+                    },
+                    {
+                        label: 'Órdenes de Compra',
+                        icon: 'fas fa-shopping-cart',
+                        route: '/ordenes',
+                        permission: 'ordenes.ver',
+                        badge: this.getOrdenesPendientesBadge()
                     }
                 ]
             },
@@ -181,7 +199,7 @@ class Sidebar {
                         permission: null
                     }
                 ]
-            }
+            },
         ];
         
         // Filtrar items según permisos
@@ -291,10 +309,10 @@ class Sidebar {
                 InventarioController.init();
                 break;
             case '/movimientos':
-                Toast.info('Módulo de Movimientos - Próximamente');
+                MovimientoController.init();
                 break;
             case '/solicitudes':
-                Toast.info('Módulo de Solicitudes - Próximamente');
+                SolicitudController.init();
                 break;
             case '/proyectos':
                 Toast.info('Módulo de Proyectos - Próximamente');
@@ -303,10 +321,10 @@ class Sidebar {
                 Toast.info('Módulo de Proveedores - Próximamente');
                 break;
             case '/reportes':
-                Toast.info('Módulo de Reportes - Próximamente');
+                ReporteController.init();
                 break;
             case '/notificaciones':
-                Toast.info('Notificaciones - Próximamente');
+                NotificacionController.init();
                 break;
             case '/categorias':
                 Toast.info('Gestión de Categorías - Próximamente');
@@ -320,6 +338,12 @@ class Sidebar {
                 break;
             case '/configuracion':
                 Toast.info('Configuración - Próximamente');
+                break;
+            case '/disponibilidad':
+                DisponibilidadController.init();
+                break;
+            case '/ordenes':
+                OrdenesController.init();
                 break;
             default:
                 Toast.warning('Ruta no encontrada');

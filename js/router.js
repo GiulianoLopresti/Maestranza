@@ -21,6 +21,10 @@ App.navigate = function(ruta) {
         case '/solicitudes': SolicitudController.init(); break;
         case '/reportes': ReporteController.init(); break;
         case '/login': LoginController.init(); break;
+        case '/notificaciones': NotificacionController.init(); break;
+        case '/disponibilidad': DisponibilidadController.init(); break;
+        case '/ordenes': OrdenesController.init(); break;
+        case '/configuracion': ConfiguracionController.init(); break;
         default: DashboardController.init();
     }
     // Actualizar active en sidebar
