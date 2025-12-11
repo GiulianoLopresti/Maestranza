@@ -1,0 +1,39 @@
+/* Estilos Responsive para Maestranza App */
+
+@media (max-width: 991px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        bottom: 0;
+        z-index: 1050;
+        transition: 0.3s;
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+    
+    .dashboard-main {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    
+    .kpi-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .navbar h4 {
+        font-size: 1.2rem;
+    }
+}
