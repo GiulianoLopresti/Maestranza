@@ -337,7 +337,7 @@ class Sidebar {
                 }
                 break;
             case '/configuracion':
-                Toast.info('Configuración - Próximamente');
+                ConfiguracionController.init();
                 break;
             case '/disponibilidad':
                 DisponibilidadController.init();
